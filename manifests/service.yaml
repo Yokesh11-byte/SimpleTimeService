@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp-v1-service
+  labels:
+    app: webapp-v1
+spec:
+  selector:
+    app: webapp-v1                # Match the deployment label
+  ports:
+    - protocol: TCP
+      port: 8085                    
+      targetPort: 8085            
+  type: LoadBalancer               # Expose the service externally (if using cloud provider)
