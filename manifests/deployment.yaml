@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: webapp-v1
+  name: simple-time-service
   labels:
-    app: webapp-v1
+    app: simple-time-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: webapp-v1
+      app: simple-time-service
   template:
     metadata:
       labels:
-        app: webapp-v1
+        app: simple-time-service
     spec:
       containers:
-        - name: webapp-v1
+        - name: simple-time-service
           image: ""  # the image name will take it automatically from the kubernetes-deployment.yaml pipeline 
           ports:
             - containerPort: 8085
