@@ -83,7 +83,7 @@ The `app-deployment.yaml` workflow will then:
 After the workflows complete, the service will be exposed via a LoadBalancer.  You can get the external IP address of the service using the following command:
 
 ```bash
-kubectl get service simple-time-service -n simple-time-ns
+kubectl get service simple-time-service -n default
 Replace simple-time-service and simple-time-ns with the actual service name and namespace if you customized them in the manifests.  The output will show the EXTERNAL-IP.  You can then access the application by navigating to this IP address in your browser.
 
 🤖 CI/CD Automation with GitHub Actions
