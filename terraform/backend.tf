@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket = ""
+    bucket = "webservice-terraform-state-bucket"
     prefix = "terraform/state"
   }
 }
