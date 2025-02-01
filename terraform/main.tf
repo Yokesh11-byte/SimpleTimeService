@@ -94,11 +94,19 @@ resource "google_container_cluster" "gke" {
 
   network    = google_compute_network.vpc.name
   subnetwork = google_compute_subnetwork.private_1.name
+  node_config {
+    machine_type = var.node_machine_type
+    oauth_scopes = [
+      "https://www.googleapis.com/auth/cloud-platform"
+    ]
+  }
 }
 # Create node pool for gke cluster
 resource "google_container_node_pool" "node_pool" {
   cluster   = google_container_cluster.gke.name
   location  = var.region
+  node_pool = var.node_pool_name
+
 
   node_config {
     machine_type = var.node_machine_type
