@@ -3,7 +3,7 @@
 This guide provides detailed instructions for deploying a **FastAPI-based microservice** on **Google Kubernetes Engine (GKE)** 🛠️. Deployment is automated using **Terraform** 🏗️ and **GitHub Actions** 🤖, ensuring a streamlined CI/CD process.
 
 ## 📂 Project Directory Overview
-
+```
 ├── .github/
 │   └── workflows/
 │       ├── gke-provisioning.yaml       # 🛠️ Workflow for provisioning GKE cluster using Terraform
@@ -23,7 +23,7 @@ This guide provides detailed instructions for deploying a **FastAPI-based micros
 │   ├── Dockerfile                       # 🐳 Dockerfile for containerization
 └── README.md                            # 📘 This file
 
-
+```
 ## 🚀 Deployment Process
 
 The deployment process is fully automated using GitHub Actions.  You will need a GitHub repository with the above file structure.
