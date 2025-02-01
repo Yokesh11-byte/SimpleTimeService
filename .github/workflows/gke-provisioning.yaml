@@ -31,5 +31,5 @@ jobs:
         run: |
           cd terraform
           terraform init
-          terraform plan
+          terraform plan -auto-approve
           terraform apply
