@@ -1,0 +1,35 @@
+name: Provision Infrastructure with Terraform
+
+on:
+  push:
+    branches:
+      - <branch-name>
+
+env:
+  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+  GKE_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+
+jobs:
+  terraform-provisioning:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Terraform
+        run: |
+          sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
+          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+          sudo apt-add-repository "deb https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+          sudo apt-get update && sudo apt-get install -y terraform
+
+      - name: Login to Google Cloud
+        uses: google-github-actions/auth@v1
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Terraform 
+        run: |
+          cd terraform
+          terraform init
+          terraform plan
+          terraform apply
