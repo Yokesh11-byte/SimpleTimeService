@@ -17,5 +17,8 @@ RUN adduser --uid 1942 --disabled-password --gecos "" myuser
 #change to the non-root user by UID
 USER 1942
 
+# Expose the app
+EXPOSE 8085
+
 # Run the Python file
 CMD ["python", "main.py"]
