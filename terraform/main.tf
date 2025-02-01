@@ -6,7 +6,7 @@ provider "google" {
 
 # Create a GCS bucket to store Terraform state
 resource "google_storage_bucket" "terraform_state" {
-  name     = var.terraform_state_bucket
+  name     = "webservice-terraform-state-bucket"
   location = "us-central1"
   uniform_bucket_level_access = true
 
