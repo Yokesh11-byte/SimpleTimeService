@@ -18,7 +18,7 @@ spec:
         - name: webapp-v1
           image: ""  # the image name will take it automatically from the kubernetes-deployment.yaml pipeline 
           ports:
-            - containerPort: 80
+            - containerPort: 8085
           securityContext:
             runAsUser: 1942               
             runAsGroup: 1942              # Use the non-root group ID
