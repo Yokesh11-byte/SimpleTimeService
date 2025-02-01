@@ -2,10 +2,10 @@
 FROM python:3.9-slim
 
 # Set working directory
-WORKDIR /app
+WORKDIR /src
 
 # Copy files
-COPY app/ /app/ 
+COPY app/ /src/ 
 
 # upgrade pip and install dependencies
 RUN python3 -m pip install --upgrade pip
